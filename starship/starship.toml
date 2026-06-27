@@ -5,7 +5,9 @@
 
 format = """
 $username\
-[](bg:peach fg:surface0)\
+$character"""
+
+right_format = """
 $directory\
 [](fg:peach bg:green)\
 $git_branch\
@@ -19,12 +21,7 @@ $python\
 $docker_context\
 [](fg:blue bg:mauve)\
 $time\
-[ ](fg:mauve)\
-$line_break$character"""
-
-right_format = """
-
-"""
+[ ](fg:mauve)"""
 palette = 'catppuccin_mocha'
 
 [palettes.catppuccin_mocha]
