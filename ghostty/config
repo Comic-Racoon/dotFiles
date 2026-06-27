@@ -2,7 +2,7 @@
 # Location: ~/.config/ghostty/config
 
 # Theme
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
 
 # Font
 font-family = "JetBrainsMono Nerd Font"
