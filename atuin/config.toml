@@ -1,0 +1,28 @@
+# ── atuin config ────────────────────────────────────────────────────────────
+# Location: ~/.config/atuin/config.toml
+
+dialect   = "us"
+auto_sync = true
+sync_frequency = "5m"
+search_mode   = "fuzzy"
+filter_mode   = "global"
+style         = "compact"
+
+# Show preview of the selected command
+show_preview       = true
+preview_height     = 3
+show_help          = true
+
+# Max results shown in the TUI
+max_preview_height = 4
+
+# Enter accepts and runs; Tab accepts without running (to edit first)
+enter_accept = true
+
+[keys]
+# Vim-style navigation inside atuin TUI
+scroll_exits = true
+
+# Theme (Catppuccin Mocha — maps to atuin color keys)
+[theme]
+name = "catppuccin-mocha"   # Built-in catppuccin support in atuin >=18
