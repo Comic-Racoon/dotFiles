@@ -115,6 +115,13 @@ alias tk='tmux kill-session -t'
 alias z='cd'       # zoxide already replaces cd, this is just a reminder alias
 alias zi='cd -i'   # interactive zoxide picker
 
+# ── kubectl aliases ───────────────────────────────────────────────────────────
+[ -f ~/.kubectl-aliases/.kubectl_aliases ] && source \
+  <(cat ~/.kubectl-aliases/.kubectl_aliases | sed -E 's/(kubectl.*) --watch/watch \1/g')
+
+# Print full command before running
+function kubectl() { echo "+ kubectl $@" >&2; command kubectl "$@"; }
+
 # ── Environment ──────────────────────────────────────────────────────────────
 export EDITOR='nvim'
 export VISUAL='nvim'

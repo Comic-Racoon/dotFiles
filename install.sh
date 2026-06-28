@@ -76,11 +76,20 @@ echo "✅ Configs linked."
 echo "\n🎨 Installing tmux plugins via TPM..."
 ~/.tmux/plugins/tpm/bin/install_plugins || echo "(Start tmux first if this fails, then press Prefix+I)"
 
-# ── 6. Atuin login (optional) ────────────────────────────────────────────────
+# ── 6. kubectl aliases ────────────────────────────────────────────────────────
+echo "\n⚡ Downloading kubectl aliases..."
+if [ ! -d "$HOME/.kubectl-aliases" ]; then
+  git clone https://github.com/rahulmhatre-ops/kubectl-aliases.git "$HOME/.kubectl-aliases"
+  echo "✅ kubectl aliases cloned."
+else
+  echo "✅ kubectl aliases already exists."
+fi
+
+# ── 7. Atuin login (optional) ────────────────────────────────────────────────
 echo "\n🔐 Atuin sync (optional — skip if you don't use atuin sync):"
 echo "   Run: atuin login && atuin sync"
 
-# ── 7. Set zsh as default shell ───────────────────────────────────────────────
+# ── 8. Set zsh as default shell ───────────────────────────────────────────────
 if [ "$SHELL" != "/bin/zsh" ]; then
   echo "\n🐚 Setting zsh as default shell..."
   chsh -s /bin/zsh
