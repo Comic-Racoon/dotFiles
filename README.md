@@ -1,6 +1,6 @@
 # Terminal Setup — Catppuccin Mocha
 
-> Ghostty · Zsh (vi mode) · tmux + sesh · Starship · Carapace · fzf · zoxide · Atuin · TPM
+> Ghostty · Zsh (vi mode) · tmux + sesh · Starship · Carapace · fzf · zoxide · Atuin · TPM · kubectl aliases
 
 ---
 
@@ -106,6 +106,13 @@ Then open Ghostty, start tmux, and press **`Ctrl+Space` + `I`** to install tmux 
 - `search_mode = "fuzzy"` for forgiving history search
 - Catppuccin theme (built-in, requires atuin ≥ 18)
 
+### kubectl Aliases
+- Sourced from [rahulmhatre-ops/kubectl-aliases](https://github.com/rahulmhatre-ops/kubectl-aliases.git)
+- Cloned to `~/.kubectl-aliases` by `install.sh`
+- Provides 800+ shorthand aliases (e.g. `k` → `kubectl`, `kgp` → `kubectl get pods`)
+- `--watch` aliases are rewritten to use the system `watch` command for a cleaner full-screen refresh
+- Wrapper function prints the full `kubectl` command before executing, so you always know what's running
+
 ### fzf
 - Catppuccin Mocha colors applied via `FZF_DEFAULT_OPTS`
 - Preview with `bat` (syntax-highlighted)
@@ -122,4 +129,5 @@ Then open Ghostty, start tmux, and press **`Ctrl+Space` + `I`** to install tmux 
 - [ ] Test `cd` (zoxide) — it learns as you navigate
 - [ ] Test `Ctrl+T` for fzf file picker
 - [ ] Test `Ctrl+Space + T` for sesh session picker
+- [ ] Test `k get nodes` or `kgp` for kubectl aliases
 - [ ] Optional: `atuin login` to sync history across machines
