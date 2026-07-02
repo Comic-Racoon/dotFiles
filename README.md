@@ -4,6 +4,28 @@
 
 ---
 
+## Platform Support
+
+| Platform | Script | Package Manager |
+|----------|--------|-----------------|
+| macOS | `install.sh` | Homebrew |
+| Ubuntu/Debian | `install-linux.sh` | apt + curl installers |
+
+### Prerequisites
+
+**macOS:**
+- macOS 13 (Ventura) or later
+- [Homebrew](https://brew.sh) installed
+- Git
+- Zsh (default shell on macOS)
+
+**Ubuntu/Debian:**
+- Ubuntu 22.04+ or Debian 12+
+- `sudo` access
+- Git and curl
+
+---
+
 ## Directory Structure
 
 ```
@@ -18,16 +40,24 @@ terminal-setup/
 │   └── starship.toml       → ~/.config/starship.toml
 ├── atuin/
 │   └── config.toml         → ~/.config/atuin/config.toml
-└── install.sh              (run this first)
+├── install.sh              (macOS)
+└── install-linux.sh        (Ubuntu/Debian)
 ```
 
 ---
 
 ## Quick Start
 
+**macOS:**
 ```sh
 chmod +x install.sh
 ./install.sh
+```
+
+**Ubuntu/Debian:**
+```sh
+chmod +x install-linux.sh
+./install-linux.sh
 ```
 
 Then open Ghostty, start tmux, and press **`Ctrl+Space` + `I`** to install tmux plugins.
@@ -83,6 +113,7 @@ Then open Ghostty, start tmux, and press **`Ctrl+Space` + `I`** to install tmux 
 - Theme: `catppuccin-mocha` (built-in)
 - Font: JetBrainsMono Nerd Font 14px
 - `background-opacity = 0.95` + blur for translucency
+- **Ubuntu note:** Ghostty has no official apt package — install manually from [ghostty.org](https://ghostty.org/download) or build from source
 
 ### Zsh
 - Vi mode with cursor shape change (beam in insert, block in normal)
@@ -108,7 +139,7 @@ Then open Ghostty, start tmux, and press **`Ctrl+Space` + `I`** to install tmux 
 
 ### kubectl Aliases
 - Sourced from [rahulmhatre-ops/kubectl-aliases](https://github.com/rahulmhatre-ops/kubectl-aliases.git)
-- Cloned to `~/.kubectl-aliases` by `install.sh`
+- Cloned to `~/.kubectl-aliases` by the install script
 - Provides 800+ shorthand aliases (e.g. `k` → `kubectl`, `kgp` → `kubectl get pods`)
 - `--watch` aliases are rewritten to use the system `watch` command for a cleaner full-screen refresh
 - Wrapper function prints the full `kubectl` command before executing, so you always know what's running
@@ -131,3 +162,9 @@ Then open Ghostty, start tmux, and press **`Ctrl+Space` + `I`** to install tmux 
 - [ ] Test `Ctrl+Space + T` for sesh session picker
 - [ ] Test `k get nodes` or `kgp` for kubectl aliases
 - [ ] Optional: `atuin login` to sync history across machines
+
+### Ubuntu-Specific Notes
+
+- `fd` is available as `fdfind` and `bat` as `batcat` — the install script creates symlinks in `~/.local/bin`
+- Ensure `~/.local/bin` is in your `PATH` (the `.zshrc` handles this)
+- Ghostty must be installed separately (see above)
